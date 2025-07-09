@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/i-consigli-della-nonna/static/css/main.d30145e1.css",
-    "main.js": "/i-consigli-della-nonna/static/js/main.8f67ff40.js",
+    "main.css": "/i-consigli-della-nonna/static/css/main.7efc8ca5.css",
+    "main.js": "/i-consigli-della-nonna/static/js/main.23ce100f.js",
     "index.html": "/i-consigli-della-nonna/index.html",
-    "main.d30145e1.css.map": "/i-consigli-della-nonna/static/css/main.d30145e1.css.map",
-    "main.8f67ff40.js.map": "/i-consigli-della-nonna/static/js/main.8f67ff40.js.map"
+    "main.7efc8ca5.css.map": "/i-consigli-della-nonna/static/css/main.7efc8ca5.css.map",
+    "main.23ce100f.js.map": "/i-consigli-della-nonna/static/js/main.23ce100f.js.map"
   },
   "entrypoints": [
-    "static/css/main.d30145e1.css",
-    "static/js/main.8f67ff40.js"
+    "static/css/main.7efc8ca5.css",
+    "static/js/main.23ce100f.js"
   ]
 }
