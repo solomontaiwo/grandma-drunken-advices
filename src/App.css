@@ -11,6 +11,8 @@ body {
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .app-bg-anim {
@@ -19,7 +21,7 @@ body {
   width: 100vw; height: 100vh;
   z-index: 0;
   background: linear-gradient(120deg, #6dd5fa 0%, #2980b9 100%);
-  animation: bgmove 12s ease-in-out infinite alternate;
+  animation: bgmove 5s ease-in-out infinite alternate;
 }
 
 @keyframes bgmove {
@@ -46,7 +48,6 @@ body {
   align-items: center;
   box-sizing: border-box;
   transition: box-shadow 0.3s, background 0.3s, max-width 0.3s, padding 0.3s;
-  animation: fadein 0.8s cubic-bezier(.39,.575,.56,1.000);
   overflow: hidden;
 }
 
@@ -89,7 +90,7 @@ body {
 .glass-card h4 {
   font-size: 1.15rem;
   font-weight: 400;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   color: #333;
   z-index: 3;
 }
@@ -167,6 +168,8 @@ body {
   justify-content: center;
   z-index: 1;
   pointer-events: none;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .glass-panel-content {
@@ -186,7 +189,6 @@ body {
   align-items: center;
   box-sizing: border-box;
   transition: box-shadow 0.3s, background 0.3s, max-width 0.3s, padding 0.3s, min-height 0.3s;
-  animation: fadein 0.8s cubic-bezier(.39,.575,.56,1.000);
   overflow: hidden;
   pointer-events: all;
   position: relative;
@@ -251,22 +253,20 @@ body {
   line-height: 1.6;
   z-index: 3;
   opacity: 1;
-  transition: opacity 0.4s, transform 0.4s;
-  will-change: opacity, transform;
+  transition: none;
+  will-change: auto;
 }
-.glass-panel-content .phrase.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  animation: tipfadein 0.5s cubic-bezier(.39,.575,.56,1.000);
-}
-.glass-panel-content .phrase.fade-out {
-  opacity: 0;
-  transform: translateY(30px);
-  pointer-events: none;
-}
-@keyframes tipfadein {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) {
+  .glass-panel-content .phrase {
+    font-size: 1.05rem;
+    min-height: 24px;
+    margin: 0.5rem 0 1rem 0;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+  }
 }
 
 .glass-panel-content button {
@@ -290,9 +290,29 @@ body {
   transform: translateY(-2px) scale(1.04);
 }
 
+/* Skeleton shimmer */
+.skeleton {
+  width: 100%;
+  max-width: 100vw;
+  height: 1.5em;
+  border-radius: 1.0em;
+  background: linear-gradient(90deg, rgba(255,255,255,0.13) 25%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.13) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 0.8s infinite linear;
+  margin: 0.5rem 0 2.5rem 0;
+  z-index: 3;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @media (max-width: 600px) {
+  body {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
   .glass-panel-full {
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
     height: 100vh;
@@ -300,14 +320,22 @@ body {
     padding: 0;
     display: flex;
     background: none;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
   }
   .glass-panel-content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
     max-width: 100vw;
     width: 100vw;
     min-width: 0;
     min-height: 0;
     height: auto;
-    border-radius: 1.2rem 1.2rem 0 0;
+    border-radius: 1.2rem;
     padding: 2.2rem 4vw 1.1rem 4vw;
     box-shadow: 0 -4px 32px 0 rgba(31, 38, 135, 0.18), 0 2px 12px 0 rgba(31, 38, 135, 0.10);
     display: flex;
@@ -317,10 +345,9 @@ body {
     overflow-y: auto;
     background-clip: padding-box;
     background: rgba(255,255,255,0.13);
-    position: relative;
-    animation: sheetin 0.7s cubic-bezier(.39,.575,.56,1.000);
-    margin-top: 32px;
-    min-height: calc(100vh - 32px);
+    min-height: 52vh;
+    max-height: 100vh;
+    z-index: 20;
   }
   .glass-panel-content::before {
     content: "";
@@ -334,6 +361,14 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+  }
+  /* Skeleton mobile */
+  .skeleton {
+    width: 100%;
+    max-width: 100vw;
+    height: 1.5em;
+    border-radius: 1.1em;
+    margin: 0.7rem 0 0.5rem 0;
   }
   @keyframes sheetin {
     from { transform: translateY(100%); opacity: 0.7; }
@@ -353,6 +388,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: none;
+  }
+  .glass-panel-content .phrase.fade-in {
+    opacity: 1;
+  }
+  .glass-panel-content .phrase.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  @keyframes tipfadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes tipfadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
   .glass-panel-content button {
     font-size: 1.13rem;
@@ -371,5 +422,18 @@ body {
     margin-left: auto;
     margin-right: auto;
     z-index: 10;
+  }
+  @media (max-width: 600px) {
+    .glass-panel-content {
+      top: auto;
+      bottom: 0;
+      transform: none;
+      min-height: 82vh;
+      height: 50vh;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: 0;
+    }
   }
 }
