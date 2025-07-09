@@ -1,7 +1,7 @@
 {
-  "homepage": "https://solomontaiwo.github.io/i-consigli-della-nonna",
-  "name": "i-consigli-della-nonna",
-  "version": "0.1.0",
+  "homepage": "https://solomontaiwo.github.io/grandma-drunken-advices",
+  "name": "grandma-drunken-advices",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
