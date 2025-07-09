@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/grandma-drunken-advices/static/css/main.511dbab5.css",
-    "main.js": "/grandma-drunken-advices/static/js/main.69de3c01.js",
+    "main.css": "/grandma-drunken-advices/static/css/main.bbc5190e.css",
+    "main.js": "/grandma-drunken-advices/static/js/main.04342dcd.js",
     "index.html": "/grandma-drunken-advices/index.html",
-    "main.511dbab5.css.map": "/grandma-drunken-advices/static/css/main.511dbab5.css.map",
-    "main.69de3c01.js.map": "/grandma-drunken-advices/static/js/main.69de3c01.js.map"
+    "main.bbc5190e.css.map": "/grandma-drunken-advices/static/css/main.bbc5190e.css.map",
+    "main.04342dcd.js.map": "/grandma-drunken-advices/static/js/main.04342dcd.js.map"
   },
   "entrypoints": [
-    "static/css/main.511dbab5.css",
-    "static/js/main.69de3c01.js"
+    "static/css/main.bbc5190e.css",
+    "static/js/main.04342dcd.js"
   ]
 }
