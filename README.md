@@ -17,8 +17,8 @@ A modern React application that offers random drinking games and tips, with an e
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/solomontaiwo/grandmas-drunken-advices.git
-cd grandmas-drunken-advices
+git clone https://github.com/solomontaiwo/grandma-drunken-advices.git
+cd grandma-drunken-advices
 ```
 
 2. **Install dependencies**
